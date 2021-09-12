@@ -33,12 +33,16 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/index', 'Home::index');
+
 $routes->get('/register', 'UserController::renderRegister');
 $routes->post('/register', 'UserController::register');
 $routes->get('/login', 'UserController::renderLogin');
 $routes->post('/login', 'UserController::login');
-$routes->get('/logout', 'UserController::logout');
 
+$routes->get('/logout', 'UserController::logout', ['filter' => 'auth']);
+$routes->get('/profile', 'UserController::profile', ['filter' => 'auth']);
+$routes->get('/editProfile', 'UserController::renderEditProfile', ['filter' => 'auth']);
+$routes->post('/editProfile', 'UserController::editProfile', ['filter' => 'auth']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing
