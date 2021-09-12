@@ -1,0 +1,57 @@
+
+@font-face {
+  font-family: Sriracha; /* Thai */
+  src: url(../front/Sriracha-Regular.ttf);
+}
+
+@font-face {
+  font-family: HinaMincho; /* English */
+  src: url(../front/HinaMincho-Regular.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: #ed64a6;
+  height: 60px;
+}
+.list-menu{
+  color: white;
+  font-family: Sriracha;
+  font-size: 16px;
+}
+.list-menu:hover {
+  color: rgb(196, 2, 196);
+  transition: 0.2s;
+}
+.fas:hover {
+  color: rgb(196, 2, 196);
+  transition: 0.2s;
+}
+
+.fas{
+  color: white;
+  font-size: 25px;
+}
+.header .logo {
+  width: 100px;
+}
+
+.article{
+  font-family: Sriracha;
+  font-size: 18;
+}
+
+.button {
+  margin-top: 4rem;
+}
+
+footer {
+  margin-top: 5rem;
+  background-color:  #ed64a6;
+  color: white;
+  font-family: Sriracha;
+  font-size: 16px;
+}

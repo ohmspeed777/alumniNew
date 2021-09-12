@@ -1,0 +1,71 @@
+
+@font-face {
+  font-family: Sriracha; /* Thai */
+  src: url(../front/Sriracha-Regular.ttf);
+}
+
+@font-face {
+  font-family: HinaMincho; /* English */
+  src: url(../front/HinaMincho-Regular.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: #ed64a6;
+  height: 60px;
+}
+.list-menu{
+  color: white;
+  font-family: Sriracha;
+  font-size: 16px;
+}
+.list-menu:hover {
+  color: rgb(196, 2, 196);
+  transition: 0.2s;
+}
+.fas:hover {
+  color: rgb(196, 2, 196);
+  transition: 0.2s;
+}
+
+.fas{
+  color: white;
+  font-size: 25px;
+}
+.header .logo {
+  width: 100px;
+}
+
+.article{
+  font-family: Sriracha;
+  font-size: 16;
+}
+
+.content{
+  margin-top: 2rem;
+}
+
+.faculty {
+  font-size: 18px;
+}
+
+.result{
+  background-color: #F2F2F2F2;
+  width: 70%;
+  height: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  border-width: 5px;
+  border-style: groove;
+}
+
+footer {
+  background-color:  #ed64a6;
+  color: white;
+  font-family: Sriracha;
+  font-size: 16px;
+  margin-top: 4rem;
+}

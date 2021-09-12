@@ -1,0 +1,102 @@
+
+@font-face {
+  font-family: Sriracha;
+  src: url(../front/Sriracha-Regular.ttf);
+}
+@font-face {
+  font-family: HinaMincho;
+  src: url(../front/HinaMincho-Regular.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: #ed64a6;
+  height: 60px;
+}
+.list-menu{
+  color: white;
+  font-family: Sriracha;
+  font-size: 16px;
+}
+.list-menu:hover {
+  color: rgb(196, 2, 196);
+  transition: 0.2s;
+}
+.fas:hover {
+  color: rgb(196, 2, 196);
+  transition: 0.2s;
+}
+
+.fas{
+  color: white;
+  font-size: 25px;
+}
+.header .logo {
+  width: 100px;
+}
+.article {
+  background-color: #f2f2f2;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+}
+.section {
+  background-color:white;
+  border-radius: 18px;
+  width: 98.8%;
+  height: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8px;
+  font-family: Sriracha;
+  font-size: 18px;
+  text-align: left;
+}
+.article .text_header{
+  margin-left:1rem ;
+}
+.article .img1{
+  width: 29%;
+  margin-right:1rem ;
+}
+
+.system {
+  background-color:white;
+  border-radius: 18px;
+  width: 98.8%;
+  height: 310px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-family: HinaMincho;
+  font-size: 20px;
+}
+.system .img {
+  width: 50%;  
+  margin-left: 6.2rem;
+}
+.article .img_button{
+  margin-bottom: 5px;
+}
+
+.button:hover {
+  color: rgb(196, 2, 196);
+  transition: 0.3s;
+}
+
+footer {
+  background-color:  #ed64a6;
+  color: white;
+  font-family: Sriracha;
+  font-size: 16px;
+}
+
+
+@media screen {
+  
+}
