@@ -62,6 +62,22 @@
   border-style: groove;
 }
 
+button p:hover{
+  color: #ed64a6;
+  transition: 0.3s;
+}
+
+.displayData{
+  width: 720px;
+  height: 600px;
+  background-color: rgb(255, 255, 255);
+  border: solid 2px #b8b8b8;
+}
+
+.displayData .dataIn{
+  padding: 3rem;
+}
+
 footer {
   background-color:  #ed64a6;
   color: white;

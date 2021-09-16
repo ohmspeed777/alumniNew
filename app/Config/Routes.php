@@ -43,6 +43,8 @@ $routes->get('/logout', 'UserController::logout', ['filter' => 'auth']);
 $routes->get('/profile', 'UserController::profile', ['filter' => 'auth']);
 $routes->get('/editProfile', 'UserController::renderEditProfile', ['filter' => 'auth']);
 $routes->post('/editProfile', 'UserController::editProfile', ['filter' => 'auth']);
+
+$routes->get('/search', 'UserController::renderSearch', ['filter' => 'auth']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\UserModel;
+use App\Models\Alumni;
 
 class UserController extends BaseController
 {
@@ -21,10 +21,10 @@ class UserController extends BaseController
     ];
 
     if ($this->validate($rules)) {
-      $userModel = new UserModel();
+      $userModel = new Alumni();
 
       $data = [
-        'stu_id' => $this->request->getVar('stu_id'),
+        'aln_id' => $this->request->getVar('stu_id'),
         'firstName' => $this->request->getVar('firstName'),
         'lastName' => $this->request->getVar('lastName'),
         'gender' => $this->request->getVar('gender'),
@@ -41,8 +41,10 @@ class UserController extends BaseController
         'line' => $this->request->getVar('line'),
         'password' => password_hash($this->request->getVar('password'), PASSWORD_BCRYPT),
       ];
+
       $userModel->insert($data);
       return redirect()->to('/login');
+
     }
 
     $data['validation'] = $this->validator;
@@ -57,19 +59,19 @@ class UserController extends BaseController
   public function login()
   {
     $session = session();
-    $userModel = new UserModel();
+    $userModel = new Alumni();
 
-    $stu_id = $this->request->getVar('stu_id');
+    $aln_id = $this->request->getVar('stu_id');
     $password = $this->request->getVar('password');
 
-    $data = $userModel->where('stu_id', $stu_id)->first();
+    $data = $userModel->where('aln_id', $aln_id)->first();
 
     if ($data) {
       $hashPass = $data['password'];
       $isCorrect = password_verify($password, $hashPass);
       if ($isCorrect) {
         $ses_data = [
-          'stu_id' => $data['stu_id'],
+          'aln_id' => $data['aln_id'],
           'firstName' => $data['firstName'],
           'isLogin' => true
         ];
@@ -95,21 +97,21 @@ class UserController extends BaseController
   {
     $session = session();
     // echo $session->get('name');\
-    $userModel = new UserModel();
+    $userModel = new Alumni();
 
     // $userModel->join('major_table', 'students.major = major_table.major_id', 'LEFT');
     // $userModel->join('faculty_table', 'students.faculty = faculty_table.fac_id', 'LEFT');
     // $userModel->select('faculty_table.fac_name');
     // $userModel->select('major_table.major_name');
     // $userModel->select('student.*');
-    $data = $userModel->find($session->get('stu_id'));
+    $data = $userModel->find($session->get('aln_id'));
     return view('profile', $data);
   }
 
   public function renderEditProfile() {
     $session = session();
-    $userModel = new UserModel();
-    $data = $userModel->find($session->get('stu_id'));
+    $userModel = new Alumni();
+    $data = $userModel->find($session->get('aln_id'));
 
     return view('editProfile', $data);
   }
@@ -133,9 +135,14 @@ class UserController extends BaseController
       'line' => $this->request->getVar('line'),
     ];
 
-    $userModel = new UserModel();
-    $userModel->update($session->get('stu_id') ,$data);
+    $userModel = new Alumni();
+    $userModel->update($session->get('aln_id') ,$data);
     return redirect()->to('/profile');
+  }
+
+
+  public function renderSearch() {
+    return view('search');
   }
 
 }
