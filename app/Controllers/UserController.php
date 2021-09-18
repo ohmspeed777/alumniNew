@@ -14,6 +14,8 @@ class UserController extends BaseController
     $session = session();
     // echo $session->get('name');\
     $userModel = new Alumni();
+    $majorModel = new Major();
+    $faculty = new Faculty();
 
     // $userModel->join('major_table', 'students.major = major_table.major_id', 'LEFT');
     // $userModel->join('faculty_table', 'students.faculty = faculty_table.fac_id', 'LEFT');
@@ -21,13 +23,20 @@ class UserController extends BaseController
     // $userModel->select('major_table.major_name');
     // $userModel->select('student.*');
     $data = $userModel->find($session->get('aln_id'));
+    $data['maj'] = $majorModel->findAll();
+    $data['fac'] = $faculty->findAll();
     return view('profile', $data);
   }
 
   public function renderEditProfile() {
     $session = session();
     $userModel = new Alumni();
+    $majorModel = new Major();
+    $faculty = new Faculty();
+    
     $data = $userModel->find($session->get('aln_id'));
+    $data['maj'] = $majorModel->findAll();
+    $data['fac'] = $faculty->findAll();
 
     return view('editProfile', $data);
   }

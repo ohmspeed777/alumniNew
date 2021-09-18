@@ -104,14 +104,14 @@
           <div class="p-2 sm:w-1/2 w-full">
             <div class="rounded flex h-full items-center">
               <p for="major">สาขาวิชา :&nbsp;</p>
-              <p id="major" name="major" class="title-font font-medium"><?= $major ? $major : ''; ?></p>
+              <p id="major" name="major" class="title-font font-medium"><?php echo $maj[$major - 1]['major_name']; ?></p>
             </div>
           </div>
 
           <div class="p-2 sm:w-1/2 w-full">
             <div class="rounded flex h-full items-center">
               <p for="faculty">คณะ :&nbsp;</p>
-              <p id="faculty" name="faculty" class="title-font font-medium"><?= $faculty ? $faculty : ''; ?></p>
+              <p id="faculty" name="faculty" class="title-font font-medium"><?php echo $fac[$faculty - 1]['fac_name']; ?></p>
             </div>
           </div>
 
