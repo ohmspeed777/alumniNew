@@ -24,7 +24,7 @@
 
 <body>
   <!-- Navbar -->
-  <nav class="header navbar navbar-expand-lg">
+  <nav class="header navbar navbar-expand-lg bg-pink-500">
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <a class="navbar-brand mt-2 mt-lg-0" href="#">
@@ -36,7 +36,7 @@
             <a class="list-menu" href="/index">หน้าแรก</a>
           </li>
           <li class="nav-item">
-            <a class="list-menu" href="/login" style="margin-left: 2rem;">ค้นหาข้อมูลศิษย์เก่า</a>
+            <a class="list-menu" href="/search" style="margin-left: 2rem;">ค้นหาข้อมูลศิษย์เก่า</a>
           </li>
         </ul>
       </div>

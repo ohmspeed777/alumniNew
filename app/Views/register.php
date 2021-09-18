@@ -24,40 +24,72 @@
 
 <body>
   <!-- Navbar -->
-  <nav class="header navbar navbar-expand-lg">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <a class="navbar-brand mt-2 mt-lg-0" href="#">
-          <img class="logo" src="/image/logo.png" height="15" alt="" loading="lazy" />
+  <?php if (session()->get('isLogin')) { ?>
+    <nav class="header navbar navbar-expand-lg bg-pink-500">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <a class="navbar-brand mt-2 mt-lg-0" href="#">
+            <img class="logo" src="/image/logo.png" height="15" alt="" loading="lazy" />
+          </a>
+          <!-- Left links -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="list-menu" href="/index">หน้าแรก</a>
+            </li>
+            <li class="nav-item">
+              <a class="list-menu" href="/search" style="margin-left: 2rem;">ค้นหาข้อมูลศิษย์เก่า</a>
+            </li>
+          </ul>
+        </div>
+        <!-- Avatar -->
+        <a class="fas nav-link" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-user"></i>
         </a>
-        <!-- Left links -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="list-menu" href="/index">หน้าแรก</a>
+        <a class="list-menu" href="/login">
+          <p>ลงชื่อผู้เข้าใช้</p>
+        </a>
+
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+          <li>
+            <a class="dropdown-item" href="/login">My profile</a>
           </li>
-          <li class="nav-item">
-            <a class="list-menu" href="/login" style="margin-left: 2rem;">ค้นหาข้อมูลศิษย์เก่า</a>
+          <li>
+            <a class="dropdown-item" href="/login">Logout</a>
           </li>
         </ul>
       </div>
-      <!-- Avatar -->
-      <a class="fas nav-link" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-        <i class="fas fa-user"></i>
-      </a>
-      <a class="list-menu" href="/login">
-        <p>ลงชื่อผู้เข้าใช้</p>
-      </a>
+      </div>
+    </nav>
+  <?php } else { ?>
+    <header class="text-gray-600 body-font header">
+      <div class="container mx-auto flex flex-wrap p-1 flex-col md:flex-row items-center">
+        <a href="/index"><img class="logo" src="/image/logo.png" alt="logo"></a>
+        <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center nav">
+          <a href="/index" class="mr-5 hover:text-gray-900">Home</a>
+          <a href="/login" class="mr-5 hover:text-gray-900">Log In</a>
+          <a href="/register" class="mr-5 hover:text-gray-900">Register</a>
+        </nav>
+      </div>
+    </header>
+  <?php } ?>
+  <!-- Avatar -->
+  <a class="fas nav-link" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+    <i class="fas fa-user"></i>
+  </a>
+  <a class="list-menu" href="/login">
+    <p>ลงชื่อผู้เข้าใช้</p>
+  </a>
 
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-        <li>
-          <a class="dropdown-item" href="/login">My profile</a>
-        </li>
-        <li>
-          <a class="dropdown-item" href="/login">Logout</a>
-        </li>
-      </ul>
-    </div>
-    </div>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+    <li>
+      <a class="dropdown-item" href="/login">My profile</a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="/login">Logout</a>
+    </li>
+  </ul>
+  </div>
+  </div>
   </nav>
 
   <div class="article">
@@ -71,7 +103,7 @@
         </div>
         <div class="lg:w-1/2 md:w-2/3 mx-auto">
 
-        <?php
+          <?php
           if (isset($validation)) {
           ?>
             <div class="alert flex flex-row items-center bg-red-200 p-3 rounded border-b-2 border-red-300">
@@ -100,7 +132,7 @@
               <div class="p-2 w-1/2">
                 <div class="relative">
                   <label for="firstName" class="leading-7 text-sm text-gray-600">ชื่อ</label>
-                  <input  type="text" id="firstName" name="firstName" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                  <input type="text" id="firstName" name="firstName" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 </div>
               </div>
               <div class="p-2 w-1/2">
@@ -114,7 +146,7 @@
                 <div class="relative">
                   <label for="gender" class="leading-7 text-sm text-gray-600">เพศ</label> <br>
                   <select id="gender" name="gender" class="form-select leading-7 text-sm text-gray-600" aria-label="Default select example">
-                    <option selected >เลือก</option>
+                    <option selected>เลือก</option>
                     <option value="1">ชาย</option>
                     <option value="2">หญิง</option>
                   </select>
@@ -243,7 +275,7 @@
               </div>
 
               <div class="p-2 w-full m-5">
-                <button class="flex mx-auto text-white bg-pink-500 border-0 py-2 px-28 focus:outline-none hover:bg-pink-600 rounded text-lg">Register</button>
+                <button class="flex mx-auto text-white bg-pink-500 border-0 py-2 px-28 focus:outline-none hover:bg-pink-600 rounded text-lg" onclick=successAlert()>Register</button>
               </div>
           </form>
         </div>

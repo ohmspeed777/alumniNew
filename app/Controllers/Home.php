@@ -6,6 +6,11 @@ class Home extends BaseController
 {
     public function index()
     {
-        return view('index');
+      // $session = session();
+      return view('index');
+    }
+
+    public function success() {
+      return view('success');
     }
 }

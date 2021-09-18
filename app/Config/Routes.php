@@ -33,18 +33,20 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/index', 'Home::index');
+$routes->get('/success', 'Home::success');
 
-$routes->get('/register', 'UserController::renderRegister');
-$routes->post('/register', 'UserController::register');
-$routes->get('/login', 'UserController::renderLogin');
-$routes->post('/login', 'UserController::login');
+$routes->get('/register', 'AuthController::renderRegister');
+$routes->post('/register', 'AuthController::register');
+$routes->get('/login', 'AuthController::renderLogin');
+$routes->post('/login', 'AuthController::login');
+$routes->get('/logout', 'AuthController::logout', ['filter' => 'auth']);
 
-$routes->get('/logout', 'UserController::logout', ['filter' => 'auth']);
 $routes->get('/profile', 'UserController::profile', ['filter' => 'auth']);
 $routes->get('/editProfile', 'UserController::renderEditProfile', ['filter' => 'auth']);
 $routes->post('/editProfile', 'UserController::editProfile', ['filter' => 'auth']);
 
 $routes->get('/search', 'UserController::renderSearch', ['filter' => 'auth']);
+$routes->get('/viewProfile/(:any)', 'UserController::viewProfile/$1', ['filter' => 'auth']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing
