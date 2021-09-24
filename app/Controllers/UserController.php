@@ -118,4 +118,22 @@ class UserController extends BaseController
 
     return view('viewData', $data);
   }
+
+  public function uploadImg()
+  {
+    $file = $this->request->getFile('img');
+    $ext = $file->getExtension();
+    if ($file->isValid()) {
+      $file->move('./image/users', session()->get('aln_id') . '.' . $ext);
+    }
+
+    $user = new Alumni();
+    $path = session()->get('aln_id') . '.' . $ext;
+    $data = [
+      'img' => $path
+    ];
+
+    $user->update(session()->get('aln_id'), $data);
+    return redirect()->to('profile');
+  }
 }

@@ -96,17 +96,16 @@
         <div>
           <section class="text-gray-600 body-font">
             <div class="container mx-auto flex px-5 py-4 items-center justify-center flex-col img">
-              <img id="preview" class="img-thumbnail img" class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" src="https://dummyimage.com/420x420">
+              <img id="preview" class="img-thumbnail img" class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" src="<?php echo '/image/users/'. $img ?>">
             </div>
           </section>
           <div class=" mt-3">
             <div id="msg"></div>
-            <form method="post" id="image-form">
-              <input type="file" name="img[]" class="file" accept="image/*">
+            <form method="post" id="image-form" action="/uploadImg" enctype="multipart/form-data">
+              <input type="file" name="img" accept="image/*">
               <div class="input-group my-4 loadimg">
-                <input type="text" class="form-control py-2 px-8" disabled placeholder="Upload File" id="file">
                 <div class="input-group-append">
-                  <button type="button" class="browse bg-pink-500 text-white border-0 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg">Browse...</button>
+                  <button type="submit" class="browse bg-pink-500 text-white border-0 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg">Browse...</button>
                 </div>
               </div>
             </form>
@@ -165,35 +164,35 @@
                   <h2 class="text-gray-900 text-lg title-font font-medium mb-3"><u>ข้อมูลการทำงาน</u></h2>
                   <div class="flex">
                     <p class="flex">สถานที่ทำงาน :&nbsp;</p>
-                    <input readonly type="text" name="workplace" value="<?= $working['place']?>">
+                    <input readonly type="text" name="workplace" value="<?= $working['place'] ?>">
                   </div>
                   <div class="flex mt-2">
                     <p class="flex">อาชีพ :&nbsp;</p>
-                    <input readonly type="text" name="occupation" value="<?= $working['job']?>">
+                    <input readonly type="text" name="occupation" value="<?= $working['job'] ?>">
                   </div>
                   <div class="flex mt-2">
                     <p class="flex">ตำแหน่ง :&nbsp;</p>
-                    <input readonly type="text" name="position" value="<?= $working['position']?>">
+                    <input readonly type="text" name="position" value="<?= $working['position'] ?>">
                   </div>
                   <div class="flex mt-2">
                     <p class="flex">ที่อยู่ :&nbsp;</p>
-                    <input readonly type="text" name="address" value="<?= $working['address']?>">
+                    <input readonly type="text" name="address" value="<?= $working['address'] ?>">
                   </div>
                   <div class="flex mt-2">
                     <p class="flex">อำเภอ :&nbsp;</p>
-                    <input readonly type="text" name="district" value="<?= $working['district']?>">
+                    <input readonly type="text" name="district" value="<?= $working['district'] ?>">
                   </div>
                   <div class="flex mt-2">
                     <p class="flex">จังหวัด :&nbsp;</p>
-                    <input readonly type="text" name="province" value="<?= $working['province']?>">
+                    <input readonly type="text" name="province" value="<?= $working['province'] ?>">
                   </div>
                   <div class="flex mt-2">
                     <p class="flex">รหัสไปรษณีย์ :&nbsp;</p>
-                    <input readonly type="text" name="postcode" value="<?= $working['zipcode']?>">
+                    <input readonly type="text" name="postcode" value="<?= $working['zipcode'] ?>">
                   </div>
                   <div class="flex mt-2">
                     <p class="flex">เบอร์โทร :&nbsp;</p>
-                    <input readonly type="text" name="telephone" value="<?= $working['tel']?>">
+                    <input readonly type="text" name="telephone" value="<?= $working['tel'] ?>">
                   </div>
                 </div>
               </div>

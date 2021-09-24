@@ -47,6 +47,7 @@ class AuthController extends BaseController
         'facebook' => $this->request->getVar('facebook'),
         'twitter' => $this->request->getVar('twitter'),
         'line' => $this->request->getVar('line'),
+        'img' => 'default.jpg',
         'password' => password_hash($this->request->getVar('password'), PASSWORD_BCRYPT),
       ];
 

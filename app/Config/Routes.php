@@ -42,6 +42,7 @@ $routes->post('/login', 'AuthController::login');
 $routes->get('/logout', 'AuthController::logout', ['filter' => 'auth']);
 
 $routes->get('/profile', 'UserController::profile', ['filter' => 'auth']);
+$routes->post('/uploadImg', 'UserController::uploadImg', ['filter' => 'auth']);
 $routes->get('/editProfile', 'UserController::renderEditProfile', ['filter' => 'auth']);
 $routes->post('/editProfile', 'UserController::editProfile', ['filter' => 'auth']);
 

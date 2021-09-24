@@ -8,7 +8,7 @@ class Alumni extends Model
 {
   protected $table = 'alumni_table';
   protected $primaryKey = 'aln_id';
-  protected $allowedFields = ['aln_id', 'firstName', 'lastName', 'qualification', 'major', 'faculty', 'facebook', 'twitter', 'line', 'email', 'password', 'inYear', 'outYear'];
+  protected $allowedFields = ['aln_id', 'img','firstName', 'lastName', 'qualification', 'major', 'faculty', 'facebook', 'twitter', 'line', 'email', 'password', 'inYear', 'outYear'];
 
   // public function getProfile()
   // {
