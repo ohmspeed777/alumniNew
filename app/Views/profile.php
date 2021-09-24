@@ -17,151 +17,249 @@
 </head>
 
 <body>
-  <nav class="header navbar navbar-expand-lg bg-pink-500">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <a class="navbar-brand mt-2 mt-lg-0" href="#">
-          <img class="logo" src="/image/logo.png" height="15" alt="" loading="lazy" />
+  <!-- Navbar -->
+  <?php if (session()->get('isLogin')) { ?>
+    <nav class="header navbar navbar-expand-lg bg-pink-500">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <a class="navbar-brand mt-2 mt-lg-0" href="#">
+            <img class="logo" src="/image/logo.png" height="15" alt="" loading="lazy" />
+          </a>
+          <!-- Left links -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="list-menu" href="/index">หน้าแรก</a>
+            </li>
+            <li class="nav-item">
+              <a class="list-menu" href="/search" style="margin-left: 2rem;">ค้นหาข้อมูลศิษย์เก่า</a>
+            </li>
+          </ul>
+        </div>
+        <!-- Avatar -->
+        <a class="fas nav-link" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-user"></i>
         </a>
-        <!-- Left links -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="list-menu" href="/index">หน้าแรก</a>
+
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+          <li>
+            <a class="dropdown-item" href="/login">My profile</a>
           </li>
-          <li class="nav-item">
-            <a class="list-menu" href="/search" style="margin-left: 2rem;">ค้นหาข้อมูลศิษย์เก่า</a>
+          <li>
+            <a class="dropdown-item" href="/login">Logout</a>
           </li>
         </ul>
       </div>
-      <!-- Avatar -->
-      <a class="fas nav-link" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-        <i class="fas fa-user"></i>
-      </a>
-      <a class="list-menu" href="/login">
-        <p>ลงชื่อผู้เข้าใช้</p>
-      </a>
+      </div>
+    </nav>
+  <?php } else { ?>
+    <nav class="header navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <a class="navbar-brand mt-2 mt-lg-0" href="#">
+            <img class="logo" src="/image/logo.png" height="15" alt="" loading="lazy" />
+          </a>
+          <!-- Left links -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="list-menu" href="/index">หน้าแรก</a>
+            </li>
+            <li class="nav-item">
+              <a class="list-menu" href="/login" style="margin-left: 2rem;">ค้นหาข้อมูลศิษย์เก่า</a>
+            </li>
+          </ul>
+        </div>
+        <a class="list-menu" href="/login">
+          <p>ลงชื่อผู้เข้าใช้</p>
+        </a>
 
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-        <li>
-          <a class="dropdown-item" href="/login">My profile</a>
-        </li>
-        <li>
-          <a class="dropdown-item" href="/login">Logout</a>
-        </li>
-      </ul>
-    </div>
-    </div>
-  </nav>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+          <li>
+            <a class="dropdown-item" href="/profile">My profile</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="/logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+      </div>
+    </nav>
+  <?php } ?>
 
   <div class="article">
     <section class="text-gray-500 body-font">
-      <div class="container px-5 py-24 mx-auto">
+      <div class="container px-5 py-10 mx-auto">
         <div class="text-center mb-20">
-          <h1 class="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">ยินดีต้องรับสู่หน้า Edit Data</h1>
-          <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">ยินดีต้องรับเข้าสู่หน้า Edit Data หากต้องการแก้ไขข้อมูลสามารถแก้ไขได้โดยไปที่หน้าแก้ไข</p>
+          <h1 class="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">ยินดีต้องรับสู่หน้า Edit Prifile</h1>
+          <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">ยินดีต้องรับเข้าสู่หน้า Edit Profile หากต้องการแก้ไขข้อมูลสามารถแก้ไขได้โดยไปที่หน้าแก้ไข</p>
         </div>
 
-        <div class="flex flex-wrap lg:w-1/2 md:w-2/3 mx-auto">
-          <div class="p-2 sm:w-1/2 w-full">
-            <div class="rounded flex h-full items-center">
-              <p for="firstName">ชื่อ :&nbsp;</p>
-              <p class="title-font font-medium" id="firstName" firstName="firstName"><?= $firstName ? $firstName : ''; ?></p>
+        <div>
+          <section class="text-gray-600 body-font">
+            <div class="container mx-auto flex px-5 py-4 items-center justify-center flex-col img">
+              <img id="preview" class="img-thumbnail img" class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" src="https://dummyimage.com/420x420">
             </div>
+          </section>
+          <div class=" mt-3">
+            <div id="msg"></div>
+            <form method="post" id="image-form">
+              <input type="file" name="img[]" class="file" accept="image/*">
+              <div class="input-group my-4 loadimg">
+                <input type="text" class="form-control py-2 px-8" disabled placeholder="Upload File" id="file">
+                <div class="input-group-append">
+                  <button type="button" class="browse bg-pink-500 text-white border-0 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg">Browse...</button>
+                </div>
+              </div>
+            </form>
           </div>
-          <div class="p-2 sm:w-1/2 w-full">
-            <div class="rounded flex h-full items-center">
-              <p for="lastName">นามสกุล :&nbsp;</p>
-              <p id="lastName" name="lastName" class="title-font font-medium"><?= $lastName ? $lastName : ''; ?></p>
-            </div>
-          </div>
-          <div class="p-2 sm:w-1/2 w-full">
-            <div class="rounded flex h-full items-center">
-              <p for="gender">เพศ :&nbsp;</p>
-              <p id="gender" name="gender" class="title-font font-medium"><?= $gender == 1 ? 'ชาย' : 'หญิง'  ?></p>
-            </div>
-          </div>
-          <div class="p-2 sm:w-1/2 w-full">
-            <div class="rounded flex h-full items-center">
-              <p for="stu_id">รหัสนักศึกษา :&nbsp;</p>
-              <p id="stu_id" name="stu_id" class="title-font font-medium"><?= $stu_id ? $stu_id : ''; ?></p>
-            </div>
-          </div>
-
-          <div class="p-2 sm:w-1/2 w-full">
-            <div class="rounded flex h-full items-center">
-              <p for="class">ชั้น :&nbsp;</p>
-              <p id="class" name="class" class="title-font font-medium"><?= $class ? $class : ''; ?></p>
-            </div>
-          </div>
-
-          <div class="p-2 sm:w-1/2 w-full">
-            <div class="rounded flex h-full items-center">
-              <p for="avgGrade">เกรดเฉลี่ย :&nbsp;</p>
-              <p id="avgGrade" name="avgGrade" class="title-font font-medium"><?= $avgGrade ? $avgGrade : ''; ?></p>
-            </div>
-          </div>
-
-          <div class="p-2 sm:w-1/2 w-full">
-            <div class="rounded flex h-full items-center">
-              <p for="major">สาขาวิชา :&nbsp;</p>
-              <p id="major" name="major" class="title-font font-medium"><?php echo $maj[$major - 1]['major_name']; ?></p>
-            </div>
-          </div>
-
-          <div class="p-2 sm:w-1/2 w-full">
-            <div class="rounded flex h-full items-center">
-              <p for="faculty">คณะ :&nbsp;</p>
-              <p id="faculty" name="faculty" class="title-font font-medium"><?php echo $fac[$faculty - 1]['fac_name']; ?></p>
-            </div>
-          </div>
-
-          <div class="p-2 sm:w-1/2 w-full">
-            <div class="rounded flex h-full items-center">
-              <p for="inYear">ปีการศึกษาแรกเข้า :&nbsp;</p>
-              <p id="inYear" name="inYear" class="title-font font-medium"><?= $inYear ? $inYear : ''; ?></p>
-            </div>
-          </div>
-
-          <div class="p-2 sm:w-1/2 w-full">
-            <div class="rounded flex h-full items-center">
-              <p for="outYear">ปีการศึกษาที่จบ :&nbsp;</p>
-              <p id="outYear" name="outYear" class="title-font font-medium"><?= $outYear ? $outYear : ''; ?></p>
-            </div>
-          </div>
-
-          <div class="p-2 sm:w-1/2 w-full">
-            <div class="rounded flex h-full items-center">
-              <p for="province">จังหวัด :&nbsp;</p>
-              <p id="province" name="province" class="title-font font-medium"><?= $province ? $province : ''; ?></p>
-            </div>
-          </div>
-          <div class="p-2 sm:w-1/2 w-full">
-            <div class="rounded flex h-full items-center">
-              <p for="email">Email :&nbsp;</p>
-              <p id="email" name="email" class="title-font font-medium"><?= $email ? $email : ''; ?></p>
-            </div>
-          </div>
-          <div class="p-2 sm:w-1/2 w-full">
-            <div class="rounded flex h-full items-center">
-              <p for="facebook">Facebook :&nbsp;</p>
-              <p id="facebook" name="facebook" class="title-font font-medium"><?= $facebook ? $facebook : ''; ?></p>
-            </div>
-          </div>
-          <div class="p-2 sm:w-1/2 w-full">
-            <div class="rounded flex h-full items-center">
-              <p for="idLine">ID Line :&nbsp;</p>
-              <p id="idLine" name="idLine" class="title-font font-medium"><?= $line ? $line : ''; ?></p>
-            </div>
-          </div>
-
-          <a href="/editProfile"><button class="flex mx-auto mt-16 text-white bg-pink-500 border-0 py-2 px-28 focus:outline-none hover:bg-pink-600 rounded text-lg">แก้ไข</button></a>
         </div>
+
+        <section class="text-gray-600 body-font">
+          <div class="container px-5 py-4 mx-auto">
+            <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
+              <div class="p-4 md:w-1/3 flex">
+                <div class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-pink-100 text-pink-500 mb-4 flex-shrink-0">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+                <div class="flex-grow pl-6">
+                  <h2 class="text-gray-900 text-lg title-font font-medium mb-3"><u>ข้อมูลการศึกษา</u></h2>
+                  <div class="flex">
+                    <p class="flex">รหัสนักศึกษา :&nbsp;</p>
+                    <input readonly type="text" name="studentID" value="<?= $aln_id ?>">
+                  </div>
+                  <div class="flex mt-2">
+                    <p class="flex">ชื่อ-นามสกุล :&nbsp;</p>
+                    <input readonly type="text" name="name" value="<?= $firstName . ' ' . $lastName ?>">
+                  </div>
+                  <div class="flex mt-2">
+                    <p class="flex">ระดับการศึกษา :&nbsp;</p>
+                    <input readonly type="text" name="educationLevel" value="<?= $education[$qualification - 1]['quali_name'] ?>">
+                  </div>
+                  <div class="flex mt-2">
+                    <p class="flex">ปีการศึกษาที่เข้า :&nbsp;</p>
+                    <input readonly type="text" name="startStudying" value="<?= $inYear ?>">
+                  </div>
+                  <div class="flex mt-2">
+                    <p class="flex">ปีการศึกษาที่จบ :&nbsp;</p>
+                    <input readonly type="text" name="endStudying" value="<?= $outYear ?>">
+                  </div>
+                  <div class="flex mt-2">
+                    <p class="flex">สาขาวิชา :&nbsp;</p>
+                    <input readonly type="text" name="major" value="<?= $maj[$major - 1]['major_name'] ?>">
+                  </div>
+                  <div class="flex mt-2">
+                    <p class="flex">คณะ :&nbsp;</p>
+                    <input readonly type="text" name="faculty" value="<?= $fac[$faculty - 1]['fac_name'] ?>">
+                  </div>
+                </div>
+              </div>
+              <div class="p-4 md:w-1/3 flex">
+                <div class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-pink-100 text-pink-500 mb-4 flex-shrink-0">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                  </svg>
+                </div>
+                <div class="flex-grow pl-6">
+                  <h2 class="text-gray-900 text-lg title-font font-medium mb-3"><u>ข้อมูลการทำงาน</u></h2>
+                  <div class="flex">
+                    <p class="flex">สถานที่ทำงาน :&nbsp;</p>
+                    <input readonly type="text" name="workplace" value="<?= $working['place']?>">
+                  </div>
+                  <div class="flex mt-2">
+                    <p class="flex">อาชีพ :&nbsp;</p>
+                    <input readonly type="text" name="occupation" value="<?= $working['job']?>">
+                  </div>
+                  <div class="flex mt-2">
+                    <p class="flex">ตำแหน่ง :&nbsp;</p>
+                    <input readonly type="text" name="position" value="<?= $working['position']?>">
+                  </div>
+                  <div class="flex mt-2">
+                    <p class="flex">ที่อยู่ :&nbsp;</p>
+                    <input readonly type="text" name="address" value="<?= $working['address']?>">
+                  </div>
+                  <div class="flex mt-2">
+                    <p class="flex">อำเภอ :&nbsp;</p>
+                    <input readonly type="text" name="district" value="<?= $working['district']?>">
+                  </div>
+                  <div class="flex mt-2">
+                    <p class="flex">จังหวัด :&nbsp;</p>
+                    <input readonly type="text" name="province" value="<?= $working['province']?>">
+                  </div>
+                  <div class="flex mt-2">
+                    <p class="flex">รหัสไปรษณีย์ :&nbsp;</p>
+                    <input readonly type="text" name="postcode" value="<?= $working['zipcode']?>">
+                  </div>
+                  <div class="flex mt-2">
+                    <p class="flex">เบอร์โทร :&nbsp;</p>
+                    <input readonly type="text" name="telephone" value="<?= $working['tel']?>">
+                  </div>
+                </div>
+              </div>
+              <div class="p-4 md:w-1/3 flex">
+                <div class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-pink-100 text-pink-500 mb-4 flex-shrink-0">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                    <circle cx="6" cy="6" r="3"></circle>
+                    <circle cx="6" cy="18" r="3"></circle>
+                    <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
+                  </svg>
+                </div>
+                <div class="flex-grow pl-6">
+                  <h2 class="text-gray-900 text-lg title-font font-medium mb-3"><u>ช่องทางการติดต่อ</u></h2>
+                  <div class="flex">
+                    <p class="flex">Facebook :&nbsp;</p>
+                    <input readonly type="text" name="facebook" value="<?= $facebook ?>">
+                  </div>
+                  <div class="flex mt-2">
+                    <p class="flex">ID Line :&nbsp;</p>
+                    <input readonly type="text" name="idLine" value="<?= $line ?>">
+                  </div>
+                  <div class="flex mt-2">
+                    <p class="flex">Twitter :&nbsp;</p>
+                    <input readonly type="text" name="twitter" value="<?= $twitter ?>">
+                  </div>
+                  <div class="flex mt-2">
+                    <p class="flex">Email :&nbsp;</p>
+                    <input readonly type="text" name="email" value="<?= $email ?>">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="flex justify-center button">
+          <a href="/editProfile"><button class="inline-flex text-white bg-pink-500 border-0 py-2 px-28 focus:outline-none hover:bg-pink-600 rounded text-lg">แก้ไขข้อมูล</button></a>
+        </div>
+      </div>
     </section>
-
   </div>
-  <footer>
-    <img src="/image/footer.png" class="d-block w-100" alt="footer.png">
+  <footer class="page-footer font-small">
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="https://mdbootstrap.com/"> Registration System</a>
+    </div>
   </footer>
+  <!-- MDB -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+
+  <script>
+    $(document).on("click", ".browse", function() {
+      var file = $(this).parents().find(".file");
+      file.trigger("click");
+    });
+    $('input[type="file"]').change(function(e) {
+      var fileName = e.target.files[0].name;
+      $("#file").val(fileName);
+
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        // get loaded data and render thumbnail.
+        document.getElementById("preview").src = e.target.result;
+      };
+      // read the image file as a data URL.
+      reader.readAsDataURL(this.files[0]);
+    });
+  </script>
 </body>
 
 </html>

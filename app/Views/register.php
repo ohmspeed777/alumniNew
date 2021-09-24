@@ -45,6 +45,35 @@
         <a class="fas nav-link" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
           <i class="fas fa-user"></i>
         </a>
+
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+          <li>
+            <a class="dropdown-item" href="/login">My profile</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="/login">Logout</a>
+          </li>
+        </ul>
+      </div>
+      </div>
+    </nav>
+  <?php } else { ?>
+    <nav class="header navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <a class="navbar-brand mt-2 mt-lg-0" href="#">
+            <img class="logo" src="/image/logo.png" height="15" alt="" loading="lazy" />
+          </a>
+          <!-- Left links -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="list-menu" href="/index">หน้าแรก</a>
+            </li>
+            <li class="nav-item">
+              <a class="list-menu" href="/login" style="margin-left: 2rem;">ค้นหาข้อมูลศิษย์เก่า</a>
+            </li>
+          </ul>
+        </div>
         <a class="list-menu" href="/login">
           <p>ลงชื่อผู้เข้าใช้</p>
         </a>
@@ -60,17 +89,6 @@
       </div>
       </div>
     </nav>
-  <?php } else { ?>
-    <header class="text-gray-600 body-font header">
-      <div class="container mx-auto flex flex-wrap p-1 flex-col md:flex-row items-center">
-        <a href="/index"><img class="logo" src="/image/logo.png" alt="logo"></a>
-        <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center nav">
-          <a href="/index" class="mr-5 hover:text-gray-900">Home</a>
-          <a href="/login" class="mr-5 hover:text-gray-900">Log In</a>
-          <a href="/register" class="mr-5 hover:text-gray-900">Register</a>
-        </nav>
-      </div>
-    </header>
   <?php } ?>
   <!-- Avatar -->
   <a class="fas nav-link" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
@@ -81,12 +99,12 @@
   </a>
 
   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-    <li>
-      <a class="dropdown-item" href="/login">My profile</a>
-    </li>
-    <li>
-      <a class="dropdown-item" href="/login">Logout</a>
-    </li>
+  <li>
+            <a class="dropdown-item" href="/profile">My profile</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="/logout">Logout</a>
+          </li>
   </ul>
   </div>
   </div>
@@ -140,30 +158,30 @@
               </div>
               <div class="p-2 w-1/2">
                 <div class="relative">
-                  <label for="name" class="leading-7 text-sm text-gray-600">ชื่อ</label>
-                  <input required type="text" id="name" name="name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                  <label for="firstName" class="leading-7 text-sm text-gray-600">ชื่อ</label>
+                  <input required type="text" id="firstName" name="firstName" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 </div>
               </div>
               <div class="p-2 w-1/2">
                 <div class="relative">
-                  <label for="lastname" class="leading-7 text-sm text-gray-600">นามสกุล</label>
-                  <input required type="text" id="lastname" name="lastname" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                  <label for="lastName" class="leading-7 text-sm text-gray-600">นามสกุล</label>
+                  <input required type="text" id="lastName" name="lastName" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 </div>
               </div>
 
               <div class="p-2 w-1/2">
                 <div class="relative">
-                  <label for="studentID" class="leading-7 text-sm text-gray-600">รหัสนักศึกษา</label>
-                  <input required type="text" id="studentID" name="studentID" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                  <label for="aln_id" class="leading-7 text-sm text-gray-600">รหัสนักศึกษา</label>
+                  <input required type="text" id="aln_id" name="aln_id" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 </div>
               </div>
               <div class="p-2 w-1/2">
                 <div class="relative">
-                  <label for="educationLevel" class="leading-7 text-sm text-gray-600">ระดับการศึกษา</label> <br>
-                  <select class="form-select leading-7 text-sm text-gray-600" aria-label="Default select example">
-                    <option selected id="educationLevel" name="educationLevel">ปริญญาตรี</option>
-                    <option value="1" id="educationLevel" name="educationLevel">ปริญญา</option>
-                    <option value="2" id="educationLevel" name="educationLevel">ปริญญา</option>
+                  <label for="qualification" class="leading-7 text-sm text-gray-600">ระดับการศึกษา</label> <br>
+                  <select name="qualification" class="form-select leading-7 text-sm text-gray-600" aria-label="Default select example">
+                    <option value="1" selected>ปริญญาตรี</option>
+                    <option value="2">ปริญญาโท</option>
+                    <option value="3">ปริญญาเอก</option>
                   </select>
                 </div>
               </div>
@@ -171,37 +189,37 @@
 
               <div class="p-2 w-1/2">
                 <div class="relative">
-                  <label for="startStudying" class="leading-7 text-sm text-gray-600">ปีการศึกษาที่เข้า</label>
-                  <input required type="text" id="startStudying" name="startStudying" maxlength="9" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                  <label for="inYear" class="leading-7 text-sm text-gray-600">ปีการศึกษาที่เข้า</label>
+                  <input required type="text" id="inYear" name="inYear" maxlength="9" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 </div>
               </div>
 
               <div class="p-2 w-1/2">
                 <div class="relative">
-                  <label for="endStudying" class="leading-7 text-sm text-gray-600">ปีการศึกษาที่จบ</label>
-                  <input required type="text" id="endStudying" name="endStudying" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                  <label for="outYear" class="leading-7 text-sm text-gray-600">ปีการศึกษาที่จบ</label>
+                  <input required type="text" id="outYear" name="outYear" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 </div>
               </div>
 
               <div class="p-2 w-1/2">
                 <div class="relative">
                   <label for="major" class="leading-7 text-sm text-gray-600">สาขาวิชา</label> <br>
-                  <select class="form-select leading-7 text-sm text-gray-600" aria-label="Default select example">
-                    <option selected id="major" name="major">วิศวกรรมซอฟต์แวร์</option>
-                    <option value="1" id="major" name="major">วิทยาการคอมพิวเตอร์</option>
-                    <option value="2" id="major" name="major">สารธารณสุขศาสตร์</option>
+                  <select name="major" id="major" class="form-select leading-7 text-sm text-gray-600" aria-label="Default select example">
+                    <option selected value="1">วิศวกรรมซอฟต์แวร์</option>
+                    <option value="2">วิทยาการคอมพิวเตอร์</option>
+                    <option value="3">สารธารณสุขศาสตร์</option>
                   </select>
                 </div>
               </div>
               <div class="p-2 w-1/2">
                 <div class="relative">
                   <label for="faculty" class="leading-7 text-sm text-gray-600">คณะ</label> <br>
-                  <select class="form-select leading-7 text-sm text-gray-600" aria-label="Default select example">
-                    <option selected id="faculty" name="faculty">คณะวิทยาศาสตร์และเทคโนโลยีสารสนเทศ</option>
-                    <option value="1" id="faculty" name="faculty">คณะครุศาสตร์</option>
-                    <option value="2" id="faculty" name="faculty">คณะมนุษย์ศาสตร์และสังคมศาสตร์</option>
-                    <option value="3" id="faculty" name="faculty">คณะวิทยาาการจัดการ</option>
-                    <option value="4" id="faculty" name="faculty">คณะพยาบาลศาสตร์</option>
+                  <select id="faculty" name="faculty" class="form-select leading-7 text-sm text-gray-600" aria-label="Default select example">
+                    <option selected value="1">คณะวิทยาศาสตร์และเทคโนโลยีสารสนเทศ</option>
+                    <option value="2">คณะครุศาสตร์</option>
+                    <option value="3">คณะมนุษย์ศาสตร์และสังคมศาสตร์</option>
+                    <option value="4">คณะวิทยาาการจัดการ</option>
+                    <option value="5">คณะพยาบาลศาสตร์</option>
                   </select>
                 </div>
               </div>
@@ -217,51 +235,51 @@
               </div>
               <div class="p-2 w-1/2">
                 <div class="relative">
-                  <label for="workplace" class="leading-7 text-sm text-gray-600">สถานที่ทำงาน</label>
-                  <input required type="text" id="workplace" name="workplace" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                  <label for="place" class="leading-7 text-sm text-gray-600">สถานที่ทำงาน</label>
+                  <input required type="text" id="place" name="place" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 </div>
               </div>
               <div class="p-2 w-1/2">
                 <div class="relative">
                   <label for="position" class="leading-7 text-sm text-gray-600">ตำแหน่ง</label>
-                  <input type="text" id="position" name="position" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                  <input required type="text" id="position" name="position" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 </div>
               </div>
               <div class="p-2 w-1/2">
                 <div class="relative">
-                  <label for="occupation" class="leading-7 text-sm text-gray-600">อาชีพ</label>
-                  <input required type="text" id="occupation" name="occupation" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                  <label for="job" class="leading-7 text-sm text-gray-600">อาชีพ</label>
+                  <input required type="text" id="job" name="job" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 </div>
               </div>
 
               <div class="p-2 w-1/2">
                 <div class="relative">
                   <label for="address" class="leading-7 text-sm text-gray-600">ที่อยู่</label>
-                  <input type="text" id="address" name="address" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                  <input required type="text" id="address" name="address" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 </div>
               </div>
               <div class="p-2 w-1/2">
                 <div class="relative">
                   <label for="district" class="leading-7 text-sm text-gray-600">อำเภอ</label>
-                  <input type="text" id="district" name="district" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                  <input required type="text" id="district" name="district" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 </div>
               </div>
               <div class="p-2 w-1/2">
                 <div class="relative">
                   <label for="province" class="leading-7 text-sm text-gray-600">จังหวัด</label>
-                  <input type="text" id="province" name="province" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                  <input required type="text" id="province" name="province" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 </div>
               </div>
               <div class="p-2 w-1/2">
                 <div class="relative">
-                  <label for="postcode" class="leading-7 text-sm text-gray-600">รหัสไปรษณีย์</label>
-                  <input type="text" id="postcode" name="postcode" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                  <label for="zipcode" class="leading-7 text-sm text-gray-600">รหัสไปรษณีย์</label>
+                  <input required type="text" id="zipcode" name="zipcode" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 </div>
               </div>
               <div class="p-2 w-1/2">
                 <div class="relative">
-                  <label for="telephone" class="leading-7 text-sm text-gray-600">เบอร์โทร</label>
-                  <input type="text" id="telephone" name="telephone" maxlength="10" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                  <label for="tel" class="leading-7 text-sm text-gray-600">เบอร์โทร</label>
+                  <input required type="text" id="tel" name="tel" maxlength="10" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 </div>
               </div>
 
@@ -277,13 +295,13 @@
               <div class="p-2 w-1/2">
                 <div class="relative">
                   <label for="facebook" class="leading-7 text-sm text-gray-600">Facebook</label>
-                  <input type="text" id="facebook" name="facebook" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                  <input required type="text" id="facebook" name="facebook" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 </div>
               </div>
               <div class="p-2 w-1/2">
                 <div class="relative">
-                  <label for="idLine" class="leading-7 text-sm text-gray-600">ID Line</label>
-                  <input type="text" id="idLine" name="idLine" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                  <label for="line" class="leading-7 text-sm text-gray-600">ID Line</label>
+                  <input type="text" id="line" name="line" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 </div>
               </div>
 
@@ -312,14 +330,17 @@
               <div class="p-2 w-1/2">
                 <div class="relative">
                   <label for="password" class="leading-7 text-sm text-gray-600">รหัสผ่าน</label>
-                  <input required type="text" id="password" name="password" maxlength="13" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                  <input required type="password" id="password" name="password" maxlength="13" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 </div>
               </div>
               <div class="p-2 w-1/2">
                 <div class="relative">
                   <label for="confirmPassword" class="leading-7 text-sm text-gray-600">ยืนยันรหัสผ่าน</label>
-                  <input required type="text" id="confirmPassword" name="confirmPassword" maxlength="13" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                  <input required type="password" id="confirmPassword" name="confirmPassword" maxlength="13" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                 </div>
+              </div>
+              <div class="p-2 w-full m-5">
+                <button class="flex mx-auto text-white bg-pink-500 border-0 py-2 px-28 focus:outline-none hover:bg-pink-600 rounded text-lg" onclick=successAlert()>Register</button>
               </div>
           </form>
         </div>

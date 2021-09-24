@@ -43,6 +43,21 @@
   font-size: 18;
 }
 
+.file {
+  visibility: hidden;
+  position: absolute;
+}
+.img{
+  display: block;
+  max-width:420px;
+  max-height:420px;
+  width: auto;
+  height: auto;
+}
+button:hover {
+  text-decoration: none;
+}
+
 footer {
   margin-top: 10rem;
   background-color:  #ed64a6;

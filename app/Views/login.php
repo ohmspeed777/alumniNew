@@ -45,9 +45,6 @@
         <a class="fas nav-link" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
           <i class="fas fa-user"></i>
         </a>
-        <a class="list-menu" href="/login">
-          <p>ลงชื่อผู้เข้าใช้</p>
-        </a>
 
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
           <li>
@@ -61,16 +58,37 @@
       </div>
     </nav>
   <?php } else { ?>
-    <header class="text-gray-600 body-font header">
-      <div class="container mx-auto flex flex-wrap p-1 flex-col md:flex-row items-center">
-        <a href="/index"><img class="logo" src="/image/logo.png" alt="logo"></a>
-        <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center nav">
-          <a href="/index" class="mr-5 hover:text-gray-900">Home</a>
-          <a href="/login" class="mr-5 hover:text-gray-900">Log In</a>
-          <a href="/register" class="mr-5 hover:text-gray-900">Register</a>
-        </nav>
+    <nav class="header navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <a class="navbar-brand mt-2 mt-lg-0" href="#">
+            <img class="logo" src="/image/logo.png" height="15" alt="" loading="lazy" />
+          </a>
+          <!-- Left links -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="list-menu" href="/index">หน้าแรก</a>
+            </li>
+            <li class="nav-item">
+              <a class="list-menu" href="/login" style="margin-left: 2rem;">ค้นหาข้อมูลศิษย์เก่า</a>
+            </li>
+          </ul>
+        </div>
+        <a class="list-menu" href="/login">
+          <p>ลงชื่อผู้เข้าใช้</p>
+        </a>
+
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+        <li>
+            <a class="dropdown-item" href="/profile">My profile</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="/logout">Logout</a>
+          </li>
+        </ul>
       </div>
-    </header>
+      </div>
+    </nav>
   <?php } ?>
 
   <div class="article">

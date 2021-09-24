@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Models\Alumni;
 use App\Models\Faculty;
 use App\Models\Major;
+use App\Models\Working;
+use App\Models\Education;
 
 class UserController extends BaseController
 {
@@ -16,15 +18,14 @@ class UserController extends BaseController
     $userModel = new Alumni();
     $majorModel = new Major();
     $faculty = new Faculty();
+    $education = new Education();
+    $working = new Working();
 
-    // $userModel->join('major_table', 'students.major = major_table.major_id', 'LEFT');
-    // $userModel->join('faculty_table', 'students.faculty = faculty_table.fac_id', 'LEFT');
-    // $userModel->select('faculty_table.fac_name');
-    // $userModel->select('major_table.major_name');
-    // $userModel->select('student.*');
     $data = $userModel->find($session->get('aln_id'));
     $data['maj'] = $majorModel->findAll();
     $data['fac'] = $faculty->findAll();
+    $data['education'] = $education->findAll();
+    $data['working'] = $working->where('aln_id', session()->get('aln_id'))->first();
     return view('profile', $data);
   }
 

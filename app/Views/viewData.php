@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alumni Information</title>
   <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
   <!-- MDB -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"  rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
 
   <link rel="stylesheet" href="/css/searchData.css">
   <!-- CSS only -->
@@ -18,32 +19,65 @@
   <!-- JavaScript Bundle with Popper -->
   <script script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.8/tailwind.min.css" ntegrity="sha512-sP93un/6HzFSfkHZ4jCTbf4XgiMldakhz+/ibX+8sk6fVvkWvoGhqfFeVlFoY6aEPakF6zI4XvVGF5+t/ahHQg==" rossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.8/tailwind.min.css" ntegrity="sha512-sP93un/6HzFSfkHZ4jCTbf4XgiMldakhz+/ibX+8sk6fVvkWvoGhqfFeVlFoY6aEPakF6zI4XvVGF5+t/ahHQg==" rossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
   <!-- Navbar -->
-  <nav class="header navbar navbar-expand-lg bg-pink-500">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <a class="navbar-brand mt-2 mt-lg-0" href="#">
-          <img class="logo" src="/image/logo.png" height="15" alt="" loading="lazy"/>
-        </a>
-        <!-- Left links -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="list-menu" href="/index">หน้าแรก</a>
-          </li>
-          <li class="nav-item">
-            <a class="list-menu"  href="/search" style="margin-left: 2rem;">ค้นหาข้อมูลศิษย์เก่า</a>
-          </li>
-        </ul>
-      </div>
+  <?php if (session()->get('isLogin')) { ?>
+    <nav class="header navbar navbar-expand-lg bg-pink-500">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <a class="navbar-brand mt-2 mt-lg-0" href="#">
+            <img class="logo" src="/image/logo.png" height="15" alt="" loading="lazy" />
+          </a>
+          <!-- Left links -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="list-menu" href="/index">หน้าแรก</a>
+            </li>
+            <li class="nav-item">
+              <a class="list-menu" href="/search" style="margin-left: 2rem;">ค้นหาข้อมูลศิษย์เก่า</a>
+            </li>
+          </ul>
+        </div>
         <!-- Avatar -->
         <a class="fas nav-link" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
           <i class="fas fa-user"></i>
         </a>
-        <a class="list-menu"  href="/login"><p>ลงชื่อผู้เข้าใช้</p></a> 
-        
+
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+        <li>
+            <a class="dropdown-item" href="/profile">My profile</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="/logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+      </div>
+    </nav>
+  <?php } else { ?>
+    <nav class="header navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <a class="navbar-brand mt-2 mt-lg-0" href="#">
+            <img class="logo" src="/image/logo.png" height="15" alt="" loading="lazy" />
+          </a>
+          <!-- Left links -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="list-menu" href="/index">หน้าแรก</a>
+            </li>
+            <li class="nav-item">
+              <a class="list-menu" href="/login" style="margin-left: 2rem;">ค้นหาข้อมูลศิษย์เก่า</a>
+            </li>
+          </ul>
+        </div>
+        <a class="list-menu" href="/login">
+          <p>ลงชื่อผู้เข้าใช้</p>
+        </a>
+
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
           <li>
             <a class="dropdown-item" href="/login">My profile</a>
@@ -53,8 +87,9 @@
           </li>
         </ul>
       </div>
-    </div>
-  </nav>
+      </div>
+    </nav>
+  <?php } ?>
 
 
   <section class="article text-gray-600 body-font">
@@ -89,31 +124,31 @@
           <div class="flex-grow pl-6">
             <h2 class="text-gray-900 text-lg title-font font-medium mb-3"><u>ข้อมูลการศึกษา</u></h2>
             <div class="flex">
-              <p class="flex">รหัสนักศึกษา :&nbsp;</p> 
-              <input type="text" name="studentID" value="<?= $user['aln_id']?>">
+              <p class="flex">รหัสนักศึกษา :&nbsp;</p>
+              <input type="text" name="studentID" value="<?= $user['aln_id'] ?>">
             </div>
             <div class="flex mt-2">
-              <p class="flex">ชื่อ-นามสกุล :&nbsp;</p> 
-              <input type="text" name="name" value="<?php echo $user['firstName']. " ". $user['lastName'];?>">
+              <p class="flex">ชื่อ-นามสกุล :&nbsp;</p>
+              <input type="text" name="name" value="<?php echo $user['firstName'] . " " . $user['lastName']; ?>">
             </div>
             <div class="flex mt-2">
-              <p class="flex">ระดับการศึกษา :&nbsp;</p> 
+              <p class="flex">ระดับการศึกษา :&nbsp;</p>
               <input type="text" name="educationLevel" value="ปริญญาตรี">
             </div>
             <div class="flex mt-2">
-              <p class="flex">ปีการศึกษาที่เข้า :&nbsp;</p> 
-              <input type="text" name="startStudying" value="<?= $user['inYear']?>">
+              <p class="flex">ปีการศึกษาที่เข้า :&nbsp;</p>
+              <input type="text" name="startStudying" value="<?= $user['inYear'] ?>">
             </div>
             <div class="flex mt-2">
-              <p class="flex">ปีการศึกษาที่จบ :&nbsp;</p> 
-              <input type="text" name="endStudying" value="<?= $user['outYear']?>">
+              <p class="flex">ปีการศึกษาที่จบ :&nbsp;</p>
+              <input type="text" name="endStudying" value="<?= $user['outYear'] ?>">
             </div>
             <div class="flex mt-2">
-              <p class="flex">สาขาวิชา :&nbsp;</p> 
+              <p class="flex">สาขาวิชา :&nbsp;</p>
               <input type="text" name="major" value="<?php echo $major[$user['major'] - 1]['major_name']; ?>">
             </div>
             <div class="flex mt-2">
-              <p class="flex">คณะ :&nbsp;</p> 
+              <p class="flex">คณะ :&nbsp;</p>
               <input type="text" name="faculty" value="<?php echo $faculty[$user['faculty'] - 1]['fac_name']; ?>">
             </div>
           </div>
@@ -127,35 +162,35 @@
           <div class="flex-grow pl-6">
             <h2 class="text-gray-900 text-lg title-font font-medium mb-3"><u>ข้อมูลการทำงาน</u></h2>
             <div class="flex">
-              <p class="flex">สถานที่ทำงาน :&nbsp;</p> 
+              <p class="flex">สถานที่ทำงาน :&nbsp;</p>
               <input type="text" name="workplace" value="สมาคมนักเวทย์">
             </div>
             <div class="flex mt-2">
-              <p class="flex">อาชีพ :&nbsp;</p> 
+              <p class="flex">อาชีพ :&nbsp;</p>
               <input type="text" name="occupation" value="นักผจญ">
             </div>
             <div class="flex mt-2">
-              <p class="flex">ตำแหน่ง :&nbsp;</p> 
+              <p class="flex">ตำแหน่ง :&nbsp;</p>
               <input type="text" name="position" value="นักผจญภัยแรงค์ SSS">
             </div>
             <div class="flex mt-2">
-              <p class="flex">ที่อยู่ :&nbsp;</p> 
+              <p class="flex">ที่อยู่ :&nbsp;</p>
               <input type="text" name="address" value="85 ถ. มาลัยแมน">
             </div>
             <div class="flex mt-2">
-              <p class="flex">อำเภอ :&nbsp;</p> 
+              <p class="flex">อำเภอ :&nbsp;</p>
               <input type="text" name="district" value="เมืองนครปฐม">
             </div>
             <div class="flex mt-2">
-              <p class="flex">จังหวัด :&nbsp;</p> 
+              <p class="flex">จังหวัด :&nbsp;</p>
               <input type="text" name="province" value="นครปฐม">
             </div>
             <div class="flex mt-2">
-              <p class="flex">รหัสไปรษณีย์ :&nbsp;</p> 
+              <p class="flex">รหัสไปรษณีย์ :&nbsp;</p>
               <input type="text" name="postcode" value="73000">
             </div>
             <div class="flex mt-2">
-              <p class="flex">เบอร์โทร :&nbsp;</p> 
+              <p class="flex">เบอร์โทร :&nbsp;</p>
               <input type="text" name="telephone" value="091092xxxx">
             </div>
           </div>
@@ -171,27 +206,27 @@
           <div class="flex-grow pl-6">
             <h2 class="text-gray-900 text-lg title-font font-medium mb-3"><u>ช่องทางการติดต่อ</u></h2>
             <div class="flex">
-              <p class="flex">Facebook :&nbsp;</p> 
-              <input type="text" name="facebook" value="<?= $user['facebook']?>">
+              <p class="flex">Facebook :&nbsp;</p>
+              <input type="text" name="facebook" value="<?= $user['facebook'] ?>">
             </div>
             <div class="flex mt-2">
-              <p class="flex">ID Line :&nbsp;</p> 
-              <input type="text" name="idLine" value="<?= $user['line']?>">
+              <p class="flex">ID Line :&nbsp;</p>
+              <input type="text" name="idLine" value="<?= $user['line'] ?>">
             </div>
             <div class="flex mt-2">
-              <p class="flex">Tel :&nbsp;</p> 
-              <input type="text" name="twitter" value="<?= $user['tel']?>">
+              <p class="flex">Tel :&nbsp;</p>
+              <input type="text" name="twitter" value="<?= $user['tel'] ?>">
             </div>
             <div class="flex mt-2">
-              <p class="flex">Email :&nbsp;</p> 
-              <input type="text" name="email" value="<?= $user['email']?>">
+              <p class="flex">Email :&nbsp;</p>
+              <input type="text" name="email" value="<?= $user['email'] ?>">
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  
+
 
   <footer class="page-footer font-small bg-pink-500">
     <div class="footer-copyright text-center py-3">© 2020 Copyright:
@@ -201,4 +236,5 @@
   <!-- MDB -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
 </body>
+
 </html>

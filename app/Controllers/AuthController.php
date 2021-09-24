@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Alumni;
 use App\Models\Major;
+use App\Models\Working;
 
 class AuthController extends BaseController
 {
@@ -32,26 +33,39 @@ class AuthController extends BaseController
 
     if ($this->validate($rules)) {
       $userModel = new Alumni();
+      $working = new Working();
       $data = [
-        'aln_id' => $this->request->getVar('stu_id'),
+        'aln_id' => $this->request->getVar('aln_id'),
         'firstName' => $this->request->getVar('firstName'),
         'lastName' => $this->request->getVar('lastName'),
-        'gender' => $this->request->getVar('gender'),
-        'class' => $this->request->getVar('class'),
-        'avgGrade' => $this->request->getVar('avgGrade'),
+        'qualification' => $this->request->getVar('qualification'),
         'major' => $this->request->getVar('major'),
         'faculty' => $this->request->getVar('faculty'),
         'inYear' => $this->request->getVar('inYear'),
         'outYear' => $this->request->getVar('outYear'),
-        'province' => $this->request->getVar('province'),
-        'tel' => $this->request->getVar('tel'),
         'email' => $this->request->getVar('email'),
         'facebook' => $this->request->getVar('facebook'),
+        'twitter' => $this->request->getVar('twitter'),
         'line' => $this->request->getVar('line'),
         'password' => password_hash($this->request->getVar('password'), PASSWORD_BCRYPT),
       ];
 
+      $education = [
+        'work_id' => '',
+        'position' => $this->request->getVar('position'),
+        'job' => $this->request->getVar('job'),
+        'address' => $this->request->getVar('address'),
+        'district' => $this->request->getVar('district'),
+        'province' => $this->request->getVar('province'),
+        'zipcode' => $this->request->getVar('zipcode'),
+        'tel' => $this->request->getVar('tel'),
+        'place' => $this->request->getVar('place'),
+        'aln_id' => $data['aln_id'],
+      ];
+
+      $working->insert($education);
       $userModel->insert($data);
+
       $data2 = [
         'msg' => 'go to Login',
         'fullMsg' => 'Successfully register, You can login right now!',
@@ -67,7 +81,6 @@ class AuthController extends BaseController
 
   public function renderLogin()
   {
-    $session = session();
     return view('login');
   }
 
