@@ -163,35 +163,35 @@
             <h2 class="text-gray-900 text-lg title-font font-medium mb-3"><u>ข้อมูลการทำงาน</u></h2>
             <div class="flex">
               <p class="flex">สถานที่ทำงาน :&nbsp;</p>
-              <input type="text" name="workplace" value="สมาคมนักเวทย์">
+              <input type="text" name="workplace" value="<?= $working['place']?>">
             </div>
             <div class="flex mt-2">
               <p class="flex">อาชีพ :&nbsp;</p>
-              <input type="text" name="occupation" value="นักผจญ">
+              <input type="text" name="occupation" value="<?= $working['job']?>">
             </div>
             <div class="flex mt-2">
               <p class="flex">ตำแหน่ง :&nbsp;</p>
-              <input type="text" name="position" value="นักผจญภัยแรงค์ SSS">
+              <input type="text" name="position" value="<?= $working['position']?>">
             </div>
             <div class="flex mt-2">
               <p class="flex">ที่อยู่ :&nbsp;</p>
-              <input type="text" name="address" value="85 ถ. มาลัยแมน">
+              <input type="text" name="address" value="<?= $working['address']?>">
             </div>
             <div class="flex mt-2">
               <p class="flex">อำเภอ :&nbsp;</p>
-              <input type="text" name="district" value="เมืองนครปฐม">
+              <input type="text" name="district" value="<?= $working['district']?>">
             </div>
             <div class="flex mt-2">
               <p class="flex">จังหวัด :&nbsp;</p>
-              <input type="text" name="province" value="นครปฐม">
+              <input type="text" name="province" value="<?= $working['province']?>">
             </div>
             <div class="flex mt-2">
               <p class="flex">รหัสไปรษณีย์ :&nbsp;</p>
-              <input type="text" name="postcode" value="73000">
+              <input type="text" name="postcode" value="<?= $working['zipcode']?>">
             </div>
             <div class="flex mt-2">
               <p class="flex">เบอร์โทร :&nbsp;</p>
-              <input type="text" name="telephone" value="091092xxxx">
+              <input type="text" name="telephone" value="<?= $working['tel']?>">
             </div>
           </div>
         </div>
@@ -215,7 +215,7 @@
             </div>
             <div class="flex mt-2">
               <p class="flex">Tel :&nbsp;</p>
-              <input type="text" name="twitter" value="<?= $user['tel'] ?>">
+              <input type="text" name="twitter" value="<?= $working['tel'] ?>">
             </div>
             <div class="flex mt-2">
               <p class="flex">Email :&nbsp;</p>

@@ -108,10 +108,13 @@ class UserController extends BaseController
     $userModel = new Alumni();
     $majorModel = new Major();
     $faculty = new Faculty();
+    $working = new Working();
     $data['user'] = $userModel->find($id);
+
     // var_dump($data['user']);
     $data['major'] = $majorModel->findAll();
     $data['faculty'] = $faculty->findAll();
+    $data['working'] = $working->where('aln_id', session()->get('aln_id'))->first();
 
     return view('viewData', $data);
   }
