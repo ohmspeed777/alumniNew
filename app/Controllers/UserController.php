@@ -51,7 +51,6 @@ class UserController extends BaseController
   {
     $session = session();
     $data = [
-      'aln_id' => $this->request->getVar('aln_id'),
       'firstName' => $this->request->getVar('firstName'),
       'lastName' => $this->request->getVar('lastName'),
       'qualification' => $this->request->getVar('qualification'),
@@ -63,11 +62,9 @@ class UserController extends BaseController
       'facebook' => $this->request->getVar('facebook'),
       'twitter' => $this->request->getVar('twitter'),
       'line' => $this->request->getVar('line'),
-      'password' => password_hash($this->request->getVar('password'), PASSWORD_BCRYPT),
     ];
 
     $education = [
-      'work_id' => '',
       'position' => $this->request->getVar('position'),
       'job' => $this->request->getVar('job'),
       'address' => $this->request->getVar('address'),
@@ -76,14 +73,16 @@ class UserController extends BaseController
       'zipcode' => $this->request->getVar('zipcode'),
       'tel' => $this->request->getVar('tel'),
       'place' => $this->request->getVar('place'),
-      'aln_id' => $data['aln_id'],
     ];
 
     $userModel = new Alumni();
     $working = new Working();
 
     $userModel->update($session->get('aln_id'), $data);
-    $working->where("aln_id", $session->get('aln_id'))->set($education)->update();
+    $working
+      ->where('aln_id', $session->get('aln_id'))
+      ->set($education)
+      ->update();
 
     $data2 = [
       'msg' => 'Go to Profile',
@@ -111,7 +110,7 @@ class UserController extends BaseController
     $working = new Working();
     $data['user'] = $userModel->find($id);
 
-    // var_dump($data['user']);
+
     $data['major'] = $majorModel->findAll();
     $data['faculty'] = $faculty->findAll();
     $data['working'] = $working->where('aln_id', session()->get('aln_id'))->first();
