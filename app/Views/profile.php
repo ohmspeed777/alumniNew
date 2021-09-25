@@ -110,7 +110,7 @@
               <input type="file" name="img" accept="image/*">
               <div class="input-group my-4 loadimg">
                 <div class="input-group-append">
-                  <button type="submit" class="browse bg-pink-500 text-white border-0 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg">Browse...</button>
+                  <button type="submit" class="browse bg-pink-500 text-white border-0 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg">Upload...</button>
                 </div>
               </div>
             </form>
