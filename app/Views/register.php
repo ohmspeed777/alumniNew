@@ -340,7 +340,7 @@
                 </div>
               </div>
               <div class="p-2 w-full m-5">
-                <button class="flex mx-auto text-white bg-pink-500 border-0 py-2 px-28 focus:outline-none hover:bg-pink-600 rounded text-lg" onclick=successAlert()>Register</button>
+                <button class="flex mx-auto text-white bg-pink-500 border-0 py-2 px-28 focus:outline-none hover:bg-pink-600 rounded text-lg">Register</button>
               </div>
           </form>
         </div>
